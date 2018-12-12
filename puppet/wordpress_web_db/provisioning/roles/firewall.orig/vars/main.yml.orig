@@ -1,0 +1,4 @@
+---
+iptables_rule_file:
+  v4: /etc/iptables/rules.v4
+  v6: /etc/iptables/rules.v6
