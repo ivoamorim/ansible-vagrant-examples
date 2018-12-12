@@ -1,0 +1,6 @@
+---
+apt_utils:
+  - apt-listbugs
+  - apt-rdepends
+  - apt-utils
+  #- unattended-upgrades
