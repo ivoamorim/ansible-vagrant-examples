@@ -1,0 +1,6 @@
+---
+- src: dev-sec.ssh-hardening
+- src: geerlingguy.firewall
+- src: geerlingguy.ntp
+- src: ivoamorim.logrotate
+- src: oefenweb.fail2ban

@@ -1,0 +1,37 @@
+---
+network_ipv6_enable: false              # sshd + ssh
+ssh_server_enabled: true               # sshd
+
+ssh_client_password_login: true          # ssh
+ssh_server_password_login: true          # sshd
+ssh_max_auth_retries: 5
+
+ssh_client_alive_interval: 300          # sshd
+ssh_client_alive_count: 3               # sshd
+
+ssh_permit_tunnel: false
+ssh_allow_root_with_key: false          # sshd
+ssh_allow_tcp_forwarding: false         # sshd
+ssh_gateway_ports: false                # sshd
+ssh_allow_agent_forwarding: false       # sshd
+
+ssh_pam_support: true
+ssh_use_pam: true      # sshd
+
+ssh_gssapi_support: true
+ssh_kerberos_support: true
+ssh_challengeresponseauthentication: false
+
+ssh_deny_users: ''      # sshd
+ssh_allow_users: ''      # sshd
+ssh_deny_groups: ''      # sshd
+ssh_allow_groups: ''      # sshd
+ssh_server_permit_environment_vars: false
+
+sftp_enabled: true
+sftp_chroot: true
+sftp_chroot_dir: /home/%u
+
+# Set to false to turn the role into a no-op. Useful when using
+# the Ansible role dependency mechanism.
+ssh_hardening_enabled: true

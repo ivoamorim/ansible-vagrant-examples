@@ -1,0 +1,33 @@
+#bridge_interface = "en0: Ethernet"
+bridge_interface = "en0: Wi-Fi (AirPort)"
+
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "geerlingguy/centos7"
+
+  config.vm.hostname = "centos7"
+  config.vm.network "public_network",
+                     #ip: "192.168.0.11",
+                     bridge: bridge_interface
+  config.vm.network "private_network",
+                     #ip: "192.168.10.11"
+                     type: "dhcp"
+
+  config.vm.provider "virtualbox" do |v|
+    v.name = "centos7"
+    v.cpus = "1"
+    v.memory = "1024"
+    v.gui = false
+  end
+
+  #config.vm.provision "shell",
+  #  inline: "yum makecache"
+  config.vm.provision "ansible" do |ansible|
+    ansible.playbook = "provisioning/playbook.yml"
+    ansible.become = true
+  end
+
+  config.vm.provision "shell",
+    inline: "install -d /home/vagrant/share"
+  config.vm.synced_folder ".", "/vagrant", disabled: true
+  config.vm.synced_folder "./share", "/home/vagrant/share"
