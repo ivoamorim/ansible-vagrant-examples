@@ -31,3 +31,4 @@ Vagrant.configure("2") do |config|
     inline: "install -d /home/vagrant/share"
   config.vm.synced_folder ".", "/vagrant", disabled: true
   config.vm.synced_folder "./share", "/home/vagrant/share"
+end
