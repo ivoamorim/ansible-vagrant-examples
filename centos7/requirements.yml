@@ -1,0 +1,12 @@
+---
+- src: dev-sec.ssh-hardening
+- src: geerlingguy.ntp
+- src: ivoamorim.iptables
+- src: ivoamorim.logrotate
+- src: ivoamorim.packages
+- src: ivoamorim.package_utilities
+- src: ivoamorim.selinux
+- src: ivoamorim.syslog
+- src: ivoamorim.tcpwrappers
+- src: linuxhq.sysctl
+- src: oefenweb.fail2ban

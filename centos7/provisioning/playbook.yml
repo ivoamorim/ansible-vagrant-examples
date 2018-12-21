@@ -3,15 +3,23 @@
   gather_facts: yes
 
   vars_files:
+    - vars/selinux.yml
+    - vars/iptables.yml
+    - vars/tcpwrappers.yml
+    - vars/sysctl.yml
+    - vars/syslog.yml
+    - vars/package-utilities.yml
     - vars/ssh-hardening.yml
     - vars/ntp.yml
+    - vars/logrotate.yml
 
   roles:
-    - selinux
-    - sysctl
-    - firewall
-    - syslog
-    - pkg-utilities
+    - ivoamorim.selinux
+    - ivoamorim.iptables
+    - ivoamorim.tcpwrappers
+    - linuxhq.sysctl
+    - ivoamorim.syslog
+    - ivoamorim.package_utilities
     - dev-sec.ssh-hardening
     - geerlingguy.ntp
-    - install-packages
+    - ivoamorim.logrotate
