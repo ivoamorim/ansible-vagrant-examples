@@ -23,3 +23,4 @@
     - dev-sec.ssh-hardening
     - geerlingguy.ntp
     - ivoamorim.logrotate
+    - sysadmin-tools
