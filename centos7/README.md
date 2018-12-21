@@ -1,10 +1,10 @@
-# Ansible Vagrant profile for AWX
+# Ansible Vagrant for example CentOS7 VMs
 
 ## Background
 
 Vagrant and VirtualBox can be used to quickly build or rebuild virtual servers.
 
-This example installs basic setting and packages on a CentOS 7 VM
+This example installs basic setting and packages on a CentOS7 VM
 
 ## Getting Started
 
