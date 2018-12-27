@@ -6,7 +6,7 @@
 - src: ivoamorim.packages
 - src: ivoamorim.package_utilities
 - src: ivoamorim.selinux
+- src: ivoamorim.sysadmin
 - src: ivoamorim.syslog
 - src: ivoamorim.tcpwrappers
 - src: linuxhq.sysctl
-- src: oefenweb.fail2ban
