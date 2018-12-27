@@ -1,0 +1,46 @@
+#bridge_interface = "en0: Ethernet"
+bridge_interface = "en0: Wi-Fi (AirPort)"
+
+HOSTS = {
+  # vm_name => [public_ip, private_ip, cpus, memory]
+  "debian9" => [nil, "172.18.0.11", 1, 512],
+}
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "geerlingguy/debian9"
+
+  HOSTS.each do |(name, cfg)|
+    public_ip, priv_ip, cpus, memory = cfg
+    config.vm.define name do |host|
+      host.vm.provider "virtualbox" do |v|
+        v.name = name
+        v.cpus = cpus
+        v.memory = memory
+        v.gui = false
+      end
+
+      host.vm.hostname = name
+      if public_ip.to_s.empty?
+        host.vm.network "public_network", bridge: bridge_interface
+      else
+        host.vm.network "public_network", ip: public_ip, bridge: bridge_interface
+      end
+      if priv_ip.to_s.empty?
+        host.vm.network "private_network", type: "dhcp"
+      else
+        host.vm.network "private_network", ip: priv_ip
+      end
+    end
+  end
+
+
+  config.vm.provision "ansible" do |ansible|
+    ansible.playbook = "provisioning/playbook.yml"
+    ansible.become = true
+  end
+  config.vm.provision "shell",
+    inline: "install -d /home/vagrant/share"
+  config.vm.synced_folder ".", "/vagrant", disabled: true
+  config.vm.synced_folder "./share", "/home/vagrant/share"
+
+end # config
