@@ -1,0 +1,23 @@
+---
+- hosts: all
+  gather_facts: yes
+  roles:
+    - ivoamorim.selinux
+    - ivoamorim.iptables
+    - ivoamorim.hosts
+    - ivoamorim.tcpwrappers
+    - linuxhq.sysctl
+    - ivoamorim.syslog
+    - ivoamorim.package_utilities
+    - dev-sec.ssh-hardening
+    - geerlingguy.ntp
+    - ivoamorim.logrotate
+    - ivoamorim.sysadmin
+
+- hosts: master
+  roles:
+    - ansible-role-puppet
+
+- hosts: agent
+  roles:
+    - ansible-role-puppet

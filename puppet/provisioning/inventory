@@ -1,0 +1,5 @@
+[master]
+master-node
+
+[agent]
+node1

@@ -1,0 +1,3 @@
+---
+puppet_role: agent
+puppet_master_server: "{{ groups['master'] | join(', ')  }}"
